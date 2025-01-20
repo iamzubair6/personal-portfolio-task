@@ -7,8 +7,8 @@ const Hero = () => {
     <section className=" py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <div className="space-y-8">
         <div className="space-y-2">
-          <h2 className="text-xl">Hi I am</h2>
-          <h1 className="text-4xl font-bold">
+          <h2 className="text-h5 font-semibold">Hi I am</h2>
+          <h1 className="text- font-bold">
             <span className="text-orange-500">Muhammad Umair</span>
           </h1>
           <div className="space-y-2">
