@@ -22,7 +22,7 @@ const ConnectMe = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <h2 className="text-display1-mobile md:text-display1 font-semibold mb-4">
+        <h2 className="text-display1-mobile md:text-display1 font-semibold pb-8">
           Lets Design Together
         </h2>
         <p className="text-gray-600 max-w-3xl mx-auto text-text-md-mobile md:text-text-md pb-10">
