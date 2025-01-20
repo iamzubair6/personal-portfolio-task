@@ -1,18 +1,30 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 
 const Header = () => {
   return (
-    <header className="bg-background">
+    <header className="bg-background pt-[61px]">
       <nav className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
-            M
+        <div className="flex items-center gap-5">
+          <div className="relative w-[67px] h-[67px]">
+            <Image
+              src={"/logo.svg"}
+              alt="brand logo"
+              fill
+              priority
+              sizes="(max-width: 768px) 67px, 67px"
+              quality={75}
+              style={{ objectFit: "contain" }}
+              className="rounded-full"
+            />
           </div>
-          <span className="text-2xl font-semibold text-foreground">Mumair</span>
+          <p className="text-h2 font-thin text-foreground">
+            <span className="font-bold">M</span>umair
+          </p>
         </div>
 
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-10 text-text-md font-normal">
           <Link
             href="/"
             className="text-foreground hover:text-primary transition-colors"
@@ -51,7 +63,7 @@ const Header = () => {
           </Link>
           <Link
             href="/cv.pdf"
-            className="bg-primary text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors"
+            className="bg-primary text-white p-4 rounded-md hover:bg-primary/80 transition-colors"
           >
             Download CV
           </Link>

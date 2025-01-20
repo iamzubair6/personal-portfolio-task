@@ -21,6 +21,7 @@ export default {
         h3: ["35px", "1.944rem"],
         h4: ["28px", "1.556rem"],
         h5: ["23px", "1.278rem"],
+        "text-md": ["21px", "1.0 rem"],
         "text-base": ["18px", "1.0rem"],
         "text-sm": ["14px", "0.778rem"],
         "text-xs": ["12px", "0.667rem"],
