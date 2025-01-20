@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} antialiased flex flex-col min-h-screen h-full max-w-container mx-auto bg-background text-foreground`}
+        className={`${poppins.variable} antialiased flex flex-col min-h-screen h-full max-w-container-mobile md:max-w-container mx-auto bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"
