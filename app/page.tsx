@@ -1,4 +1,5 @@
 import AboutMe from "@/components/AboutMe";
+import ConnectMe from "@/components/ConnectMe";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
@@ -12,6 +13,7 @@ export default function Home() {
       <Services />
       <Projects />
       <TestimonialSlider />
+      <ConnectMe />
     </div>
   );
 }

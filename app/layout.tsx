@@ -1,3 +1,4 @@
+import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import type { Metadata } from "next";
@@ -23,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} antialiased flex flex-col min-h-screen h-full max-w-container-mobile md:max-w-container mx-auto bg-background text-foreground`}
+        className={`${poppins.variable} antialiased flex flex-col min-h-screen h-full bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"
@@ -31,7 +32,10 @@ export default function RootLayout({
           enableSystem={false}
         >
           <Header />
-          <div className="flex-grow">{children}</div>
+          <div className="flex-grow max-w-container-mobile md:max-w-container mx-auto">
+            {children}
+          </div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
