@@ -1,8 +1,26 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import MaskImage from "./shared/MaskImage";
 
 const Hero = () => {
+  const icon = [
+    {
+      icon: Facebook,
+      href: "#",
+    },
+    {
+      icon: Instagram,
+      href: "#",
+    },
+    {
+      icon: Linkedin,
+      href: "#",
+    },
+    {
+      icon: Twitter,
+      href: "#",
+    },
+  ];
   return (
     <section className="pt-[60px] lg:py-[120px] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[148px] items-center">
       <div className="space-y-4 lg:space-y-8">
@@ -33,44 +51,19 @@ const Hero = () => {
       </div>
 
       <div>
-        <div className="relative w-full h-[400px] lg:h-[617px]">
-          <Image
-            src="/user.png"
-            alt="Profile Image"
-            fill
-            className="object-contain"
-            sizes="(max-width: 768px) 400px, 617px"
-            priority
-            quality={100}
-          />
-          <div className="absolute top-[13%] right-[15%] lg:right-[22%] w-[280px] lg:w-[374px] h-[60px] lg:h-[83px] bg-primary/50 z-30" />
-        </div>
-
+        <MaskImage src="/user.png" />
         <div className="flex gap-4 lg:gap-6 justify-center mt-6 lg:mt-8">
-          <Link
-            href="#"
-            className="text-foreground hover:text-orange-500 transition-colors"
-          >
-            <Facebook size={24} />
-          </Link>
-          <Link
-            href="#"
-            className="text-foreground hover:text-orange-500 transition-colors"
-          >
-            <Twitter size={24} />
-          </Link>
-          <Link
-            href="#"
-            className="text-foreground hover:text-orange-500 transition-colors"
-          >
-            <Instagram size={24} />
-          </Link>
-          <Link
-            href="#"
-            className="text-foreground hover:text-orange-500 transition-colors"
-          >
-            <Linkedin size={24} />
-          </Link>
+          {icon.map(({ icon: Icon, href }, idx) => {
+            return (
+              <Link
+                href={href}
+                className="text-foreground hover:text-orange-500 transition-colors"
+                key={idx}
+              >
+                <Icon size={24} />
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
