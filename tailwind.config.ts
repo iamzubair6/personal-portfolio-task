@@ -13,6 +13,8 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: "#fd6f00",
+        bgSecondary: "#F8F8F8",
+        borderColor: "#545454",
       },
       fontSize: {
         display: ["100px", "4.5rem"],
