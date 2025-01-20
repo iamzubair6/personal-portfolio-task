@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  distDir: "build",
+  // distDir: "build",
   /* config options here */
 };
 
