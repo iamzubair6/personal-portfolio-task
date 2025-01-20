@@ -57,15 +57,17 @@ export default function TestimonialSlider() {
   const getSlidePosition = (index: number) => {
     const offset = index - currentIndex;
     const baseWidth = 370;
-    const mobileWidth = 200;
+    const mobileWidth = 300;
     return {
       initial: {
         scale: index === 1 ? 1 : 0.8,
         opacity: index === 1 ? 1 : 0.4,
-        x: `calc(${index - 1} * (60% + ${baseWidth}px))`,
+        x: `calc(${index - 1} * (60% + ${mobileWidth}px))`,
       },
       animate: {
-        x: `calc(${offset} * (60% + clamp(${mobileWidth}px, 30vw, ${baseWidth}px)))`,
+        x: `calc(${offset} * (${window.innerWidth < 768 ? "90%" : "60%"} + ${
+          window.innerWidth < 768 ? mobileWidth : baseWidth
+        }px))`,
         scale: index === currentIndex ? 1 : 0.8,
         opacity: index === currentIndex ? 1 : 0.4,
       },
@@ -84,7 +86,7 @@ export default function TestimonialSlider() {
         </p>
       </div>
 
-      <div className="relative h-[350px] md:h-[400px] lg:h-[500px] flex items-center justify-center">
+      <div className="relative h-[600px] md:h-[400px] lg:h-[500px] flex items-center justify-center">
         {testimonials.map((_, idx) => {
           const isActive = idx === currentIndex;
           const positions = getSlidePosition(idx);
@@ -95,7 +97,11 @@ export default function TestimonialSlider() {
               style={{
                 position: "absolute",
                 width: "100%",
-                maxWidth: isActive ? "900px" : "700px",
+                maxWidth: isActive
+                  ? window.innerWidth < 768
+                    ? "100%"
+                    : "900px"
+                  : "700px",
                 zIndex: isActive ? 2 : 1,
               }}
               initial={positions?.initial}
@@ -118,7 +124,7 @@ export default function TestimonialSlider() {
                 }`}
               >
                 <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start">
-                  <div className="relative w-[235px] h-[235px] shrink-0">
+                  <div className="relative w-[180px] h-[180px] md:w-[235px] md:h-[235px] shrink-0">
                     <Image
                       src={testimonials[idx]?.image}
                       alt={testimonials[idx]?.name}
@@ -128,13 +134,13 @@ export default function TestimonialSlider() {
                       priority={isActive}
                     />
                   </div>
-                  <div className="flex-1 lg:h-[234px] flex flex-col justify-between">
+                  <div className="flex-1 md:h-[234px] flex flex-col justify-between text-center md:text-left">
                     <div className="relative">
-                      <Quote className="absolute -top-4 -left-2 w-8 h-8 text-primary opacity-20" />
-                      <p className="text-gray-700 text-text-md md:text-text-md mb-6 pt-4 italic">
+                      <Quote className="hidden md:block absolute -top-4 -left-2 w-8 h-8 text-primary opacity-20" />
+                      <p className="text-gray-700 text-text-sm md:text-text-md mb-6 pt-4 italic">
                         {testimonials[idx]?.content}
                       </p>
-                      <Quote className="absolute -bottom-4 -right-0 w-8 h-8 text-primary opacity-20" />
+                      <Quote className="hidden md:block absolute -bottom-4 -right-0 w-8 h-8 text-primary opacity-20" />
                     </div>
                     <div className="mt-auto">
                       <h4 className="font-medium text-text-h5-mobile md:text-h5">
