@@ -5,11 +5,11 @@ import Link from "next/link";
 const Footer = () => {
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "About Me", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Projects", href: "/projects" },
-    { name: "Testimonials", href: "/testimonials" },
-    { name: "Contact", href: "/contact" },
+    { name: "About Me", href: "/#" },
+    { name: "Services", href: "/#" },
+    { name: "Projects", href: "/#" },
+    { name: "Testimonials", href: "/#" },
+    { name: "Contact", href: "/#" },
   ];
 
   const socialLinks = [

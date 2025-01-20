@@ -7,6 +7,18 @@ import { ThemeToggle } from "./ThemeToggle";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <header className="bg-background pt-[61px] relative z-40">
       <div className="max-w-container-mobile md:max-w-container mx-auto">
@@ -69,42 +81,48 @@ const Header = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-10 text-text-md font-normal">
-            <Link
-              href="/"
+            <a
+              href="#home"
+              onClick={(e) => handleScroll(e, "home")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Home
-            </Link>
-            <Link
-              href="/about"
+            </a>
+            <a
+              href="#about"
+              onClick={(e) => handleScroll(e, "about")}
               className="text-foreground hover:text-primary transition-colors"
             >
               About Me
-            </Link>
-            <Link
-              href="/services"
+            </a>
+            <a
+              href="#services"
+              onClick={(e) => handleScroll(e, "services")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Services
-            </Link>
-            <Link
-              href="/projects"
+            </a>
+            <a
+              href="#projects"
+              onClick={(e) => handleScroll(e, "projects")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Projects
-            </Link>
-            <Link
-              href="/testimonials"
+            </a>
+            <a
+              href="#testimonials"
+              onClick={(e) => handleScroll(e, "testimonials")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Testimonials
-            </Link>
-            <Link
-              href="/contact"
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => handleScroll(e, "contact")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Contact
-            </Link>
+            </a>
             <Link
               href="/cv.pdf"
               className="bg-primary text-white p-4 rounded-md hover:bg-primary/80 transition-colors"
@@ -153,48 +171,48 @@ const Header = () => {
             </div>
 
             <div className="flex flex-col gap-6 text-text-md">
-              <Link
-                href="/"
-                className="text-foreground  transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+              <a
+                href="#home"
+                onClick={(e) => handleScroll(e, "home")}
+                className="text-foreground transition-colors"
               >
                 Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-foreground  transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+              </a>
+              <a
+                href="#about"
+                onClick={(e) => handleScroll(e, "about")}
+                className="text-foreground transition-colors"
               >
                 About Me
-              </Link>
-              <Link
-                href="/services"
-                className="text-foreground  transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+              </a>
+              <a
+                href="#services"
+                onClick={(e) => handleScroll(e, "services")}
+                className="text-foreground transition-colors"
               >
                 Services
-              </Link>
-              <Link
-                href="/projects"
-                className="text-foreground  transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+              </a>
+              <a
+                href="#projects"
+                onClick={(e) => handleScroll(e, "projects")}
+                className="text-foreground transition-colors"
               >
                 Projects
-              </Link>
-              <Link
-                href="/testimonials"
-                className="text-foreground  transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+              </a>
+              <a
+                href="#testimonials"
+                onClick={(e) => handleScroll(e, "testimonials")}
+                className="text-foreground transition-colors"
               >
                 Testimonials
-              </Link>
-              <Link
-                href="/contact"
-                className="text-foreground  transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => handleScroll(e, "contact")}
+                className="text-foreground transition-colors"
               >
                 Contact
-              </Link>
+              </a>
               <Link
                 href="/cv.pdf"
                 className="bg-primary text-white p-4 rounded-md hover:bg-primary/80 transition-colors text-center"

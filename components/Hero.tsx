@@ -22,7 +22,10 @@ const Hero = () => {
     },
   ];
   return (
-    <section className="py-[60px] lg:py-[120px] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[148px] items-center">
+    <section
+      id="home"
+      className="py-[60px] lg:py-[120px] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[148px] items-center"
+    >
       <div className="space-y-4 lg:space-y-8">
         <div className="space-y-2 lg:space-y-4">
           <h2 className="text-h5-mobile lg:text-h5 font-semibold">Hi I am</h2>

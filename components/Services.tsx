@@ -27,7 +27,7 @@ const Services = () => {
     },
   ];
   return (
-    <section className="pb-[60px] md:pb-[120px]">
+    <section id="services" className="pb-[60px] md:pb-[120px]">
       <div className="text-center space-y-4 mb-16">
         <h2 className="text-display1-mobile md:text-display1 font-semibold">
           Services

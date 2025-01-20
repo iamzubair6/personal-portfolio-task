@@ -43,7 +43,7 @@ const Projects = () => {
       : projects?.filter((project) => project?.category === activeCategory);
 
   return (
-    <section className="pb-[60px] md:pb-[120px]">
+    <section id="projects" className="pb-[60px] md:pb-[120px]">
       <div className="text-center space-y-4 mb-14">
         <h2 className="text-display1-mobile md:text-display1 font-semibold pb-5">
           My Projects

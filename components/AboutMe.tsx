@@ -9,7 +9,10 @@ const AboutMe = () => {
     { title: "Graphic Design", value: 95 },
   ];
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[33px] items-center pb-[60px] lg:pb-[120px]">
+    <div
+      id="about"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[33px] items-center pb-[60px] lg:pb-[120px]"
+    >
       <MaskImage src="/user2.png" />
       <div>
         <h2 className="text-display1-mobile md:text-display1 font-semibold ">

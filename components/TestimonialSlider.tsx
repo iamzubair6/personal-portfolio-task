@@ -35,7 +35,7 @@ const testimonials = [
   },
 ];
 
-export default function TestimonialSlider() {
+const TestimonialSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const controls = useAnimation();
 
@@ -75,10 +75,10 @@ export default function TestimonialSlider() {
   };
 
   return (
-    <div className="pb-[60px] md:pb-[120px] overflow-hidden">
+    <div id="testimonials" className="pb-[60px] md:pb-[120px] overflow-hidden">
       <div className="text-center mb-8 md:mb-16 px-4">
         <h2 className="text-display1-mobile md:text-display1 font-semibold mb-4">
-          What Our Clients Say
+          Testimonials
         </h2>
         <p className="text-gray-600 max-w-3xl mx-auto text-text-md-mobile md:text-text-md mb-16">
           Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh
@@ -174,4 +174,5 @@ export default function TestimonialSlider() {
       </div>
     </div>
   );
-}
+};
+export default TestimonialSlider;
