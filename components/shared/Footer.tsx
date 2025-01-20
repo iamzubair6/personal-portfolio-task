@@ -36,7 +36,7 @@ const Footer = () => {
                 className="rounded-full"
               />
             </div>
-            <p className="text-h2 font-thin text-foreground">
+            <p className="text-h2 font-thin text-black">
               <span className="font-bold">M</span>umair
             </p>
           </div>

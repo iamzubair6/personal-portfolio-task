@@ -3,7 +3,7 @@
 import { motion, PanInfo, useAnimation } from "framer-motion";
 import { Quote } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const testimonials = [
   {
@@ -36,7 +36,7 @@ const testimonials = [
 ];
 
 const TestimonialSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(1);
   const [windowWidth, setWindowWidth] = useState(0);
   const controls = useAnimation();
 
@@ -69,8 +69,8 @@ const TestimonialSlider = () => {
     const isMobile = windowWidth < 768;
     return {
       initial: {
-        scale: index === 1 ? 1 : 0.8,
-        opacity: index === 1 ? 1 : 0.4,
+        scale: index === currentIndex ? 1 : 0.8,
+        opacity: index === currentIndex ? 1 : 0.4,
         x: `calc(${index - 1} * (60% + ${mobileWidth}px))`,
       },
       animate: {
@@ -152,7 +152,7 @@ const TestimonialSlider = () => {
                       <Quote className="hidden md:block absolute -bottom-4 -right-0 w-8 h-8 text-primary opacity-20" />
                     </div>
                     <div className="mt-auto">
-                      <h4 className="font-medium text-text-h5-mobile md:text-h5">
+                      <h4 className="font-medium text-text-h5-mobile md:text-h5 text-gray-500 ">
                         {testimonials[idx]?.name}
                       </h4>
                       <p className="text-gray-500 text-text-base-mobile md:text-text-base">
