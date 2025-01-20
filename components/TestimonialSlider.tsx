@@ -3,7 +3,7 @@
 import { motion, PanInfo, useAnimation } from "framer-motion";
 import { Quote } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const testimonials = [
   {
@@ -37,7 +37,15 @@ const testimonials = [
 
 const TestimonialSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
   const controls = useAnimation();
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleDragEnd = (
     _: MouseEvent | TouchEvent | PointerEvent,
@@ -58,6 +66,7 @@ const TestimonialSlider = () => {
     const offset = index - currentIndex;
     const baseWidth = 370;
     const mobileWidth = 300;
+    const isMobile = windowWidth < 768;
     return {
       initial: {
         scale: index === 1 ? 1 : 0.8,
@@ -65,8 +74,8 @@ const TestimonialSlider = () => {
         x: `calc(${index - 1} * (60% + ${mobileWidth}px))`,
       },
       animate: {
-        x: `calc(${offset} * (${window.innerWidth < 768 ? "90%" : "60%"} + ${
-          window.innerWidth < 768 ? mobileWidth : baseWidth
+        x: `calc(${offset} * (${isMobile ? "90%" : "60%"} + ${
+          isMobile ? mobileWidth : baseWidth
         }px))`,
         scale: index === currentIndex ? 1 : 0.8,
         opacity: index === currentIndex ? 1 : 0.4,
@@ -98,7 +107,7 @@ const TestimonialSlider = () => {
                 position: "absolute",
                 width: "100%",
                 maxWidth: isActive
-                  ? window.innerWidth < 768
+                  ? windowWidth < 768
                     ? "100%"
                     : "900px"
                   : "700px",
