@@ -56,7 +56,7 @@ export default function TestimonialSlider() {
 
   const getSlidePosition = (index: number) => {
     const offset = index - currentIndex;
-    const baseWidth = 300;
+    const baseWidth = 370;
     const mobileWidth = 200;
     return {
       initial: {
@@ -95,7 +95,7 @@ export default function TestimonialSlider() {
               style={{
                 position: "absolute",
                 width: "100%",
-                maxWidth: isActive ? "800px" : "700px",
+                maxWidth: isActive ? "900px" : "700px",
                 zIndex: isActive ? 2 : 1,
               }}
               initial={positions?.initial}
@@ -120,8 +120,8 @@ export default function TestimonialSlider() {
                 <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start">
                   <div className="relative w-[235px] h-[235px] shrink-0">
                     <Image
-                      src={testimonials[idx].image}
-                      alt={testimonials[idx].name}
+                      src={testimonials[idx]?.image}
+                      alt={testimonials[idx]?.name}
                       fill
                       className="rounded-full object-cover"
                       sizes="235px"
@@ -131,17 +131,17 @@ export default function TestimonialSlider() {
                   <div className="flex-1 lg:h-[234px] flex flex-col justify-between">
                     <div className="relative">
                       <Quote className="absolute -top-4 -left-2 w-8 h-8 text-primary opacity-20" />
-                      <p className="text-gray-700 text-base md:text-lg mb-6 pt-4 italic">
-                        {testimonials[idx].content}
+                      <p className="text-gray-700 text-text-md md:text-text-md mb-6 pt-4 italic">
+                        {testimonials[idx]?.content}
                       </p>
                       <Quote className="absolute -bottom-4 -right-0 w-8 h-8 text-primary opacity-20" />
                     </div>
                     <div className="mt-auto">
-                      <h4 className="font-semibold text-lg md:text-xl">
-                        {testimonials[idx].name}
+                      <h4 className="font-medium text-text-h5-mobile md:text-h5">
+                        {testimonials[idx]?.name}
                       </h4>
-                      <p className="text-gray-500 text-sm md:text-base">
-                        {testimonials[idx].role}
+                      <p className="text-gray-500 text-text-base-mobile md:text-text-base">
+                        {testimonials[idx]?.role}
                       </p>
                     </div>
                   </div>
