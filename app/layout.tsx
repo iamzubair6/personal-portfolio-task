@@ -1,3 +1,5 @@
+import Header from "@/components/shared/Header";
+import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -19,11 +21,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} antialiased flex flex-col min-h-screen h-full`}
+        className={`${poppins.variable} antialiased flex flex-col min-h-screen h-full max-w-container mx-auto bg-background text-foreground`}
       >
-        <div className="flex-grow">{children}</div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+        >
+          <Header />
+          <div className="flex-grow">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );
