@@ -57,7 +57,7 @@ const Footer = () => {
                 <a
                   key={item?.name}
                   href={item?.href}
-                  className="text-gray-600 hover:text-primary transition-colors"
+                  className=" hover:text-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
