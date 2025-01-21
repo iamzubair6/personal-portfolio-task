@@ -20,7 +20,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#F8F8F8]">
+    <footer className="bg-[#F8F8F8] dark:bg-background">
       <div className="pt-12">
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-5">
@@ -36,7 +36,7 @@ const Footer = () => {
                 className="rounded-full"
               />
             </div>
-            <p className="text-h2 font-thin text-black">
+            <p className="text-h2 font-thin ">
               <span className="font-bold">M</span>umair
             </p>
           </div>
@@ -48,7 +48,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-gray-600 hover:text-primary transition-colors text-text-md-mobile md:text-text-md"
+                    className="text-gray-600 dark:text-white hover:text-primary transition-colors text-text-md-mobile md:text-text-md"
                   >
                     {item.name}
                   </Link>
@@ -77,7 +77,7 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="text-center text-text-md-mobile md:text-text-md text-white bg-[#545454] w-full py-[26px]">
+          <div className="text-center text-text-md-mobile md:text-text-md text-white bg-[#545454] dark:bg-black w-full py-[26px]">
             <p>
               © 2023 <span className="text-primary font-bold">Mumair</span> All
               Rights Reserved, Inc.

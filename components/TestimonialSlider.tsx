@@ -40,6 +40,15 @@ const TestimonialSlider = () => {
   const [windowWidth, setWindowWidth] = useState(0);
   const controls = useAnimation();
 
+  // Add auto-play functionality
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 3000); // Change slide every 5 seconds
+
+    return () => clearInterval(timer);
+  }, []);
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     setWindowWidth(window.innerWidth);
@@ -47,38 +56,52 @@ const TestimonialSlider = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const getNormalizedIndex = (index: number) => {
+    return (index + testimonials.length) % testimonials.length;
+  };
+
   const handleDragEnd = (
     _: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
   ) => {
     const threshold = 50;
     if (Math.abs(info.offset.x) > threshold) {
-      if (info.offset.x > 0 && currentIndex > 0) {
-        setCurrentIndex(currentIndex - 1);
-      } else if (info.offset.x < 0 && currentIndex < testimonials.length - 1) {
-        setCurrentIndex(currentIndex + 1);
+      if (info.offset.x > 0) {
+        setCurrentIndex((prev) => getNormalizedIndex(prev - 1));
+      } else {
+        setCurrentIndex((prev) => getNormalizedIndex(prev + 1));
       }
     }
     controls.start({ x: 0 });
   };
 
   const getSlidePosition = (index: number) => {
-    const offset = index - currentIndex;
     const baseWidth = 370;
     const mobileWidth = 300;
     const isMobile = windowWidth < 768;
+    const center = currentIndex;
+
+    // Calculate the shortest distance in a circular array
+    let offset = index - center;
+    if (Math.abs(offset) > testimonials.length / 2) {
+      offset = offset - Math.sign(offset) * testimonials.length;
+    }
+
     return {
       initial: {
-        scale: index === currentIndex ? 1 : 0.8,
-        opacity: index === currentIndex ? 1 : 0.4,
+        scale: 0.8,
+        opacity: 0.4,
         x: `calc(${index - 1} * (60% + ${mobileWidth}px))`,
+        rotateY: 0,
       },
       animate: {
         x: `calc(${offset} * (${isMobile ? "90%" : "60%"} + ${
           isMobile ? mobileWidth : baseWidth
         }px))`,
-        scale: index === currentIndex ? 1 : 0.8,
-        opacity: index === currentIndex ? 1 : 0.4,
+        scale: index === center ? 1 : 0.8,
+        opacity: index === center ? 1 : 0.4,
+        rotateY: offset * -15, // Add rotation effect
+        z: index === center ? 0 : -100, // Add depth
       },
     };
   };
@@ -112,6 +135,8 @@ const TestimonialSlider = () => {
                     : "900px"
                   : "700px",
                 zIndex: isActive ? 2 : 1,
+                perspective: "1000px", // Add perspective for 3D effect
+                transformStyle: "preserve-3d",
               }}
               initial={positions?.initial}
               animate={positions?.animate}
