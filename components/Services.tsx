@@ -7,7 +7,7 @@ const Services = () => {
         <h2 className="text-display1-mobile md:text-display1 font-semibold">
           Services
         </h2>
-        <p className="text-gray-600 max-w-3xl mx-auto text-text-md-mobile md:text-text-md">
+        <p className=" max-w-3xl mx-auto text-text-md-mobile md:text-text-md">
           Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh
           lectus netus in. Aliquet donec morbi convallis pretium
         </p>
@@ -32,7 +32,7 @@ const Services = () => {
             <h3 className="text-h3-mobile md:text-h3 font-semibold mb-4 text-black">
               {service?.title}
             </h3>
-            <p className="text-gray-600 text-text-base-mobile md:text-text-base">
+            <p className="text-black text-text-base-mobile md:text-text-base">
               {service?.description}
             </p>
           </div>

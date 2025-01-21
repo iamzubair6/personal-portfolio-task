@@ -19,7 +19,7 @@ const Projects = () => {
         <h2 className="text-display1-mobile md:text-display1 font-semibold pb-5">
           My Projects
         </h2>
-        <p className="text-gray-600 max-w-3xl mx-auto text-text-md-mobile md:text-text-md">
+        <p className=" max-w-3xl mx-auto text-text-md-mobile md:text-text-md">
           Lorem ipsum dolor sit amet consectetur. Mollis erat duis aliquam
           mauris est risus lectus. Phasellus consequat urna tellus
         </p>

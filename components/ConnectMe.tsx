@@ -25,7 +25,7 @@ const ConnectMe = () => {
         <h2 className="text-display1-mobile md:text-display1 font-semibold pb-8">
           Lets Design Together
         </h2>
-        <p className="text-gray-600 max-w-3xl mx-auto text-text-md-mobile md:text-text-md pb-10">
+        <p className=" max-w-3xl mx-auto text-text-md-mobile md:text-text-md pb-10">
           Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh
           lectus netus in. Aliquet donec morbi convallis pretium
         </p>
@@ -37,14 +37,14 @@ const ConnectMe = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
         onSubmit={handleSubmit}
-        className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto"
+        className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto"
       >
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter Your Email"
-          className="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+          className="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all dark:bg-white"
           required
         />
         <motion.button

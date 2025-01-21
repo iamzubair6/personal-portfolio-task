@@ -81,7 +81,7 @@ const TestimonialSlider = () => {
         <h2 className="text-display1-mobile md:text-display1 font-semibold mb-4">
           Testimonials
         </h2>
-        <p className="text-gray-600 max-w-3xl mx-auto text-text-md-mobile md:text-text-md mb-16">
+        <p className=" max-w-3xl mx-auto text-text-md-mobile md:text-text-md mb-16">
           Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh
           lectus netus in. Aliquet donec morbi convallis pretium
         </p>
