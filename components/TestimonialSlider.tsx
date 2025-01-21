@@ -1,63 +1,33 @@
 "use client";
 
+import { testimonials } from "@/data/localData";
 import { motion, PanInfo, useAnimation } from "framer-motion";
 import { Quote } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-const testimonials = [
-  {
-    id: 1,
-    content:
-      "Lorem ipsum dolor sit amet consectetur. In enim cursus odio accumsan. Id leo urna velit neque mattis id tellus arcu condimentum. Augue dictum dolor elementum convallis dignissim malesuada commodo ultrices.",
-    name: "John Smith",
-    role: "CEO",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&fit=crop",
-  },
-  {
-    id: 2,
-    content:
-      "Working with this team has been an absolute pleasure. Their attention to detail and commitment to excellence is unmatched. They've transformed our vision into reality.",
-    name: "Sarah Johnson",
-    role: "Marketing Director",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&h=200&fit=crop",
-  },
-  {
-    id: 3,
-    content:
-      "The level of professionalism and creativity they bring to the table is exceptional. Our project was delivered on time and exceeded all expectations.",
-    name: "Michael Chen",
-    role: "Product Manager",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&h=200&fit=crop",
-  },
-];
 
 const TestimonialSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [windowWidth, setWindowWidth] = useState(0);
   const controls = useAnimation();
 
-  // Add auto-play functionality
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 3000); // Change slide every 5 seconds
+      setCurrentIndex((prev) => (prev + 1) % testimonials?.length);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, []);
 
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
+    const handleResize = () => setWindowWidth(window?.innerWidth);
     setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const getNormalizedIndex = (index: number) => {
-    return (index + testimonials.length) % testimonials.length;
+    return (index + testimonials?.length) % testimonials?.length;
   };
 
   const handleDragEnd = (
@@ -81,10 +51,9 @@ const TestimonialSlider = () => {
     const isMobile = windowWidth < 768;
     const center = currentIndex;
 
-    // Calculate the shortest distance in a circular array
     let offset = index - center;
-    if (Math.abs(offset) > testimonials.length / 2) {
-      offset = offset - Math.sign(offset) * testimonials.length;
+    if (Math.abs(offset) > testimonials?.length / 2) {
+      offset = offset - Math.sign(offset) * testimonials?.length;
     }
 
     return {
@@ -100,8 +69,8 @@ const TestimonialSlider = () => {
         }px))`,
         scale: index === center ? 1 : 0.8,
         opacity: index === center ? 1 : 0.4,
-        rotateY: offset * -15, // Add rotation effect
-        z: index === center ? 0 : -100, // Add depth
+        rotateY: offset * -15,
+        z: index === center ? 0 : -100,
       },
     };
   };

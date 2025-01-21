@@ -1,4 +1,5 @@
 "use client";
+import { headerNavigation } from "@/data/localData";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -81,50 +82,20 @@ const Header = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-10 text-text-md font-normal">
-            <a
-              href="#home"
-              onClick={(e) => handleScroll(e, "home")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="#about"
-              onClick={(e) => handleScroll(e, "about")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              About Me
-            </a>
-            <a
-              href="#services"
-              onClick={(e) => handleScroll(e, "services")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Services
-            </a>
-            <a
-              href="#projects"
-              onClick={(e) => handleScroll(e, "projects")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Projects
-            </a>
-            <a
-              href="#testimonials"
-              onClick={(e) => handleScroll(e, "testimonials")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Testimonials
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => handleScroll(e, "contact")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Contact
-            </a>
+            {headerNavigation?.map((item, idx) => {
+              return (
+                <Link
+                  key={idx}
+                  href={`#${item?.href}`}
+                  onClick={(e) => handleScroll(e, item?.href)}
+                  className="text-foreground hover:text-primary transition-colors"
+                >
+                  {item?.name}
+                </Link>
+              );
+            })}
             <Link
-              href="/cv.pdf"
+              href="#"
               className="bg-primary text-white p-4 rounded-md hover:bg-primary/80 transition-colors"
             >
               Download CV
@@ -171,50 +142,20 @@ const Header = () => {
             </div>
 
             <div className="flex flex-col gap-6 text-text-md">
-              <a
-                href="#home"
-                onClick={(e) => handleScroll(e, "home")}
-                className="text-foreground transition-colors"
-              >
-                Home
-              </a>
-              <a
-                href="#about"
-                onClick={(e) => handleScroll(e, "about")}
-                className="text-foreground transition-colors"
-              >
-                About Me
-              </a>
-              <a
-                href="#services"
-                onClick={(e) => handleScroll(e, "services")}
-                className="text-foreground transition-colors"
-              >
-                Services
-              </a>
-              <a
-                href="#projects"
-                onClick={(e) => handleScroll(e, "projects")}
-                className="text-foreground transition-colors"
-              >
-                Projects
-              </a>
-              <a
-                href="#testimonials"
-                onClick={(e) => handleScroll(e, "testimonials")}
-                className="text-foreground transition-colors"
-              >
-                Testimonials
-              </a>
-              <a
-                href="#contact"
-                onClick={(e) => handleScroll(e, "contact")}
-                className="text-foreground transition-colors"
-              >
-                Contact
-              </a>
+              {headerNavigation?.map((item, idx) => {
+                return (
+                  <Link
+                    key={idx}
+                    href={`#${item?.href}`}
+                    onClick={(e) => handleScroll(e, item?.href)}
+                    className="text-foreground transition-colors"
+                  >
+                    {item?.name}
+                  </Link>
+                );
+              })}
               <Link
-                href="/cv.pdf"
+                href="#"
                 className="bg-primary text-white p-4 rounded-md hover:bg-primary/80 transition-colors text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >

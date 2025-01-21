@@ -1,17 +1,9 @@
+import { footerNavigation } from "@/data/localData";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "About Me", href: "/#" },
-    { name: "Services", href: "/#" },
-    { name: "Projects", href: "/#" },
-    { name: "Testimonials", href: "/#" },
-    { name: "Contact", href: "/#" },
-  ];
-
   const socialLinks = [
     { name: "Facebook", href: "#", icon: Facebook },
     { name: "Twitter", href: "#", icon: Twitter },
@@ -44,13 +36,13 @@ const Footer = () => {
           {/* Navigation */}
           <nav className="my-20">
             <ul className="flex flex-wrap justify-center gap-10">
-              {navigation.map((item) => (
-                <li key={item.name}>
+              {footerNavigation?.map((item) => (
+                <li key={item?.name}>
                   <Link
-                    href={item.href}
+                    href={item?.href}
                     className="text-gray-600 dark:text-white hover:text-primary transition-colors text-text-md-mobile md:text-text-md"
                   >
-                    {item.name}
+                    {item?.name}
                   </Link>
                 </li>
               ))}
@@ -60,16 +52,16 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex gap-6 mb-8">
             {socialLinks.map((item) => {
-              const Icon = item.icon;
+              const Icon = item?.icon;
               return (
                 <a
-                  key={item.name}
-                  href={item.href}
+                  key={item?.name}
+                  href={item?.href}
                   className="text-gray-600 hover:text-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="sr-only">{item.name}</span>
+                  <span className="sr-only">{item?.name}</span>
                   <Icon className="w-6 h-6" />
                 </a>
               );

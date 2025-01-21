@@ -1,31 +1,6 @@
+import { services } from "@/data/localData";
 import Image from "next/image";
 const Services = () => {
-  const services = [
-    {
-      title: "UI/UX",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Morbi diam nisi nam diam interdum",
-      image: "/1.svg",
-    },
-    {
-      title: "Web Design",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Morbi diam nisi nam diam interdum",
-      image: "/2.svg",
-    },
-    {
-      title: "App Design",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Morbi diam nisi nam diam interdum",
-      image: "/3.svg",
-    },
-    {
-      title: "Graphic Design",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Morbi diam nisi nam diam interdum",
-      image: "/4.svg",
-    },
-  ];
   return (
     <section id="services" className="pb-[60px] md:pb-[120px]">
       <div className="text-center space-y-4 mb-16">
@@ -39,7 +14,7 @@ const Services = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {services.map((service) => (
+        {services?.map((service) => (
           <div
             key={service?.title}
             className="bg-[#F8F8F8] p-8 rounded-xl hover:shadow-lg transition-shadow group"

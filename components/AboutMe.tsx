@@ -1,13 +1,8 @@
+import { skills } from "@/data/localData";
 import MaskImage from "./shared/MaskImage";
 import Progress from "./shared/Progress";
 
 const AboutMe = () => {
-  const skills = [
-    { title: "UX", value: 90 },
-    { title: "Website Design", value: 95 },
-    { title: "App Design", value: 75 },
-    { title: "Graphic Design", value: 95 },
-  ];
   return (
     <div
       id="about"
@@ -25,8 +20,8 @@ const AboutMe = () => {
         </p>
         <div className="pt-2">
           <div className="space-y-6">
-            {skills.map((skill, index) => (
-              <Progress key={index} {...skill} />
+            {skills?.map((skill, idx) => (
+              <Progress key={idx} {...skill} />
             ))}
           </div>
         </div>

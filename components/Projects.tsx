@@ -1,37 +1,8 @@
 "use client";
-
-import { Project, ProjectCategory } from "@/types/propType";
+import { categories, projects } from "@/data/localData";
+import { ProjectCategory } from "@/types/propType";
 import Image from "next/image";
 import { useState } from "react";
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "AirCalling Landing Page Design",
-    category: "Web Design",
-    image: "/p1.svg",
-  },
-  {
-    id: 2,
-    title: "Business Landing Page Design",
-    category: "Web Design",
-    image: "/p2.png",
-  },
-  {
-    id: 3,
-    title: "Ecom Web Page Design",
-    category: "Web Design",
-    image: "/p3.png",
-  },
-];
-
-const categories: ProjectCategory[] = [
-  "All",
-  "UI/UX",
-  "Web Design",
-  "App Design",
-  "Graphic Design",
-];
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] =
@@ -55,7 +26,7 @@ const Projects = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-3 mb-24">
-        {categories.map((category) => (
+        {categories?.map((category) => (
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
